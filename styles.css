@@ -20,8 +20,8 @@ body {
 
 /* Color Variables */
 :root {
-    --primary-green: #8bc34a;
-    --light-green: #a4d65e;
+    --primary-green: #0b8438;
+    --light-green: #84c064;
     --beige: #f5f0e1;
     --pale-yellow: #fff9c4;
     --white: #ffffff;
@@ -75,6 +75,17 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: none;
 }
 
 /* Buttons */
@@ -654,7 +665,7 @@ textarea {
     }
     
     nav ul li {
-        margin: 1.5rem 0;
+        margin: 0.1rem 0;
         width: 100%;
         text-align: center;
     }
@@ -767,4 +778,35 @@ textarea {
         margin-right: 0;
         margin-bottom: 1rem;
     }
+}
+
+nav ul li.mobile-social-icons {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav ul li.mobile-social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+
+nav ul li.mobile-social-icons a {
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li.mobile-social-icons a:hover {
+    background-color: var(--light-green);
+    transform: translateY(-2px);
 }

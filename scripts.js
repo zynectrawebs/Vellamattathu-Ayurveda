@@ -2,6 +2,25 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Scroll Animation for all sections and text elements
+    const scrollAnimatedElements = [
+        ...document.querySelectorAll('section'),
+        ...Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, .card, .btn, .profile-content, .profile-img, .hero-content, .container, .row, .col, .col-md-6, .col-md-12'))
+            .filter(el => !el.classList.contains('no-animate'))
+    ];
+    
+    scrollAnimatedElements.forEach(el => el.classList.add('animate-on-scroll'));
+    function animateOnScroll() {
+        scrollAnimatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                el.classList.add('animated');
+            }
+        });
+    }
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+
     // Mobile Navigation Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
