@@ -1,115 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Website Under Construction</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #d0e6c7, #a3c9a8);
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2f4f4f;
-    }
-
-    .container {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      position: relative;
-      z-index: 10;
-      max-width: 500px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #2c5f2d;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #3d3d3d;
-    }
-
-    .loader {
-      border: 5px solid #e0f0e3;
-      border-top: 5px solid #2c5f2d;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin: 0 auto;
-      animation: spin 1s linear infinite;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.85rem;
-      color: #6b8e23;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Falling Leaves Animation */
-    .leaf {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/34/Leaf_icon.png');
-      background-size: cover;
-      opacity: 0.6;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-50px) rotate(0deg);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vellamattathu Ayurveda - Holistic Wellness Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-  <!-- Falling leaves -->
-  <script>
-    for (let i = 0; i < 12; i++) {
-      const leaf = document.createElement('div');
-      leaf.classList.add('leaf');
-      leaf.style.left = Math.random() * 100 + 'vw';
-      leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
-      leaf.style.animationDelay = Math.random() * 5 + 's';
-      document.body.appendChild(leaf);
-    }
-  </script>
 
-  <!-- Main content -->
-  <div class="container">
-    <h1>Healing in Progress...</h1>
-    <p>Our Ayurvedic journey is taking shape. Please check back soon for a rejuvenating experience.</p>
-    <div class="loader"></div>
-    <footer>&copy; 2025 Vellamattathu Ayurveda</footer>
-  </div>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.gif" alt="logo">
+                <h1>Vellamattathu Ayurveda</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="appointment.html" class="btn">Appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero">
+        <div class="hero-slide" style="background-image: url('images/slide/1.png');">
+            <div class="hero-content">
+                <h1>Welcome to Vellamattathu Ayurveda</h1>
+                <p>Experience the ancient healing wisdom of Ayurveda for holistic wellness and rejuvenation</p>
+                <a href="appointment.html" class="btn">Book an Appointment</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('images/slide/2.png');">
+            <div class="hero-content">
+                <h1>Natural Healing Therapies</h1>
+                <p>Our treatments are based on time-tested Ayurvedic principles for mind-body balance</p>
+                <a href="treatments.html" class="btn">Explore Treatments</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('images/slide/3.jpg');">
+            <div class="hero-content">
+                <h1>Authentic Herbal Remedies</h1>
+                <p>We use traditional herbs and formulations prepared with utmost care and precision</p>
+                <a href="profile.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Founder Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Our Founder</h2>
+            <div class="profile-section">
+                <div class="profile-img">
+                    <img src="images/founder.jpg" alt="Founder">
+                </div>
+                <div class="profile-content">
+                    <h3>Vaidyan V N Sivaraman Nair</h3>
+                    <p>Vaidyan V. N. Sivaraman Nair, the visionary founder of Vellamattathu Ayurveda, began his journey in 1945 with a profound dedication to the principles of traditional Ayurvedic healing.</p>
+                    <p>With deep-rooted knowledge and years of disciplined practice, he became a respected healer known for his compassionate care and commitment to holistic wellness.</p>
+                    <p>Under his leadership, Vellamattathu Ayurveda grew into a trusted institution, attracting patients from near and far who sought authentic and effective Ayurvedic treatments.</p>
+                    <p>His enduring legacy lives on through the continued work of the hospital, which upholds his values and remains a beacon of natural health and well-being.</p>
+                    <a href="profile.html" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Some of Our Treatments Section -->
+    <section style="background-color: var(--beige);">
+        <div class="container">
+            <h2 class="section-title">Some of Our Treatments</h2>
+            <div class="row">
+                <!-- Treatment Card 1 -->
+  <!-- Treatment Card 1 -->
+<div class="col col-md-6 col-sm-12">
+    <div class="card">
+        <img src="images/treatments/elakkizhi.jpg" alt="Elakkizhi" class="card-img">
+        <div class="card-content">
+            <h3 class="card-title">Elakkizhi</h3>
+            <p>Warm herbal bundles are applied to relieve pain, reduce swelling, and improve joint flexibility.</p>
+            <a href="treatments.html" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Card 2 -->
+<div class="col col-md-6 col-sm-12">
+    <div class="card">
+        <img src="images/treatments/januvasti.jpg" alt="Januvasti" class="card-img">
+        <div class="card-content">
+            <h3 class="card-title">Januvasti</h3>
+            <p>Warm oil is pooled on the knees to ease joint pain and support recovery from arthritis and injuries.</p>
+            <a href="treatments.html" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Card 3 -->
+<div class="col col-md-6 col-sm-12">
+    <div class="card">
+        <img src="images/treatments/narangakizhi.jpg" alt="Narangakizhi" class="card-img">
+        <div class="card-content">
+            <h3 class="card-title">Narangakizhi</h3>
+            <p>Bundles with citrus and herbs detoxify the body, boost circulation, and refresh the skin.</p>
+            <a href="treatments.html" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Card 4 -->
+<div class="col col-md-6 col-sm-12">
+    <div class="card">
+        <img src="images/treatments/nasyam.jpg" alt="Nasyam" class="card-img">
+        <div class="card-content">
+            <h3 class="card-title">Nasyam</h3>
+            <p>Herbal oils are gently introduced through the nose to clear sinuses and sharpen mental clarity.</p>
+            <a href="treatments.html" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>Vellamattathu Ayurveda</h3>
+                <p>Your trusted partner for authentic Ayurvedic treatments and holistic wellness solutions.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/vellamattathu.ayurveda/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/vellamattathuayurveda/"><i class="fab fa-instagram"></i></a>                    <
+<a href="https://wa.me/917558021340?text=Hello%20There..." target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="treatments.html">Treatments</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Vellamattathu Ayurveda, Kooropada, Kottayam - 686502</p>
+                <p><i class="fas fa-phone"></i> +91 75580 21340</p>
+                <p><i class="fas fa-envelope"></i> vellamattathu@gmail.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Location</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.9692098562223!2d76.64346357367995!3d9.597919579826929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b063280dbef980b%3A0x1244a0615671df41!2sVellamattathu%20Ayurveda!5e0!3m2!1sen!2sin!4v1748428903110!5m2!1sen!2sin"
+                    class="footer-map" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+               <p>&copy; 2025 Vellamattathu Ayurveda. All Rights Reserved | Created By Zynectra</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

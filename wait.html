@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Under Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #d0e6c7, #a3c9a8);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2f4f4f;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2c5f2d;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #3d3d3d;
+    }
+
+    .loader {
+      border: 5px solid #e0f0e3;
+      border-top: 5px solid #2c5f2d;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      animation: spin 1s linear infinite;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #6b8e23;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Falling Leaves Animation */
+    .leaf {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/34/Leaf_icon.png');
+      background-size: cover;
+      opacity: 0.6;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Falling leaves -->
+  <script>
+    for (let i = 0; i < 12; i++) {
+      const leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
+      leaf.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(leaf);
+    }
+  </script>
+
+  <!-- Main content -->
+  <div class="container">
+    <h1>Healing in Progress...</h1>
+    <p>Our Ayurvedic journey is taking shape. Please check back soon for a rejuvenating experience.</p>
+    <div class="loader"></div>
+    <footer>&copy; 2025 Vellamattathu Ayurveda</footer>
+  </div>
+</body>
+</html>

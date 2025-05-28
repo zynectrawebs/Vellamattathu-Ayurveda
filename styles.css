@@ -122,6 +122,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px; /* Fixed height for consistent vertical centering */
 }
 
 .logo {
@@ -143,6 +144,9 @@ header {
 nav ul {
     display: flex;
     list-style: none;
+    height: 100%;
+    align-items: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -188,6 +192,7 @@ section {
     padding: 4rem 0;
 }
 
+/* Section Titles and Subtitles */
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
@@ -203,6 +208,13 @@ section {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--text-light);
 }
 
 /* Cards */
@@ -534,16 +546,23 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    margin-top: 2rem;
+}
+
+.contact-column {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
 }
 
 .contact-info {
-    flex: 1;
-    min-width: 300px;
+    background-color: #f8f9fa;
 }
 
 .contact-form {
-    flex: 2;
-    min-width: 300px;
+    background-color: #e9f5f0;
 }
 
 .contact-item {
@@ -569,6 +588,11 @@ textarea {
     border-radius: 10px;
     overflow: hidden;
     margin-top: 3rem;
+}
+
+.map-title {
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Responsive Styles */
@@ -706,5 +730,41 @@ textarea {
     
     .treatment-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .contact-info, .contact-form {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .contact-column {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-container {
+        height: 250px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 }
