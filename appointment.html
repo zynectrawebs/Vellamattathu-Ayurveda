@@ -355,6 +355,127 @@ transform: translateY(-100%);
 ">
     </div>
 
+    <style>
+        .social-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+            /* Set a fixed width for consistent layout */
+            width: 56px;
+        }
+
+        /* Container for social icons */
+        .social-menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+            width: 56px;
+        }
+
+        /* When menu is open */
+        .social-menu.open .social-menu-items {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* Each social link */
+        .social-menu-items a {
+            background-color: #0b8438;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-menu-items a:hover {
+            background-color: #84c064;
+        }
+
+        /* Main toggle button */
+        .social-menu-toggle {
+            background-color: transparent;
+            color: white;
+            width: 56px;
+            height: 56px;
+            /* border-radius: 50%;  remove if no rounding wanted */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .social-menu-toggle:hover {
+            background-color: transparent;
+        }
+    </style>
+
+    <div class="social-menu" id="socialMenu">
+        <div class="social-menu-items" id="menuItems">
+            <a href="https://www.facebook.com/vellamattathu.ayurveda/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/7558021340" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+917558021340" aria-label="Call">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/hvr17jammFZsb6rV7" target="_blank" aria-label="Google">
+                <i class="fa-solid fa-location-dot"></i>
+            </a>
+            <a href="https://www.instagram.com/vellamattathuayurveda/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="social-menu-toggle" id="toggleButton" title="Social Menu">
+            <img src="images/logo.gif" alt="Social Menu Toggle" style="width: 44px; height: 44px;">
+        </div>
+
+    </div>
+
+    <script>
+        const socialMenu = document.getElementById('socialMenu');
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Toggle open/close menu
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            socialMenu.classList.toggle('open');
+        });
+
+        // Close menu if click or touch outside the menu
+        document.addEventListener('click', (e) => {
+            if (!socialMenu.contains(e.target)) {
+                socialMenu.classList.remove('open');
+            }
+        });
+
+        // Close menu on scroll anywhere
+        window.addEventListener('scroll', () => {
+            socialMenu.classList.remove('open');
+        });
+    </script>
 </body>
 
 </html>

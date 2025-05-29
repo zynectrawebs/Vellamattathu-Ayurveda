@@ -3,23 +3,27 @@
 
 <head>
     <title>Treatments - Vellamattathu Ayurveda</title>
-    <meta name="description" content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
-    <meta name="keywords" content="Ayurveda, Kerala Ayurveda, wellness, Ayurvedic treatments, Panchakarma, herbal medicine, holistic health, rejuvenation, Kerala retreat, natural healing, Vellamattathu Ayurveda, traditional medicine, yoga, meditation, detox, spa">
+    <meta name="description"
+        content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
+    <meta name="keywords"
+        content="Ayurveda, Kerala Ayurveda, wellness, Ayurvedic treatments, Panchakarma, herbal medicine, holistic health, rejuvenation, Kerala retreat, natural healing, Vellamattathu Ayurveda, traditional medicine, yoga, meditation, detox, spa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="canonical" href="https://www.vellamattathuayurveda.com/">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Treatments - Vellamattathu Ayurveda">
-    <meta property="og:description" content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
+    <meta property="og:description"
+        content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
     <meta property="og:url" content="https://www.vellamattathuayurveda.com/treatments.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.vellamattathuayurveda.com/images/founder.jpg">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Treatments - Vellamattathu Ayurveda">
-    <meta name="twitter:description" content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
+    <meta name="twitter:description"
+        content="Experience authentic Kerala Ayurveda treatments and holistic wellness at Vellamattathu Ayurveda. Rejuvenate your mind, body, and soul in Kerala's serene nature.">
     <meta name="twitter:image" content="https://www.vellamattathuayurveda.com/images/founder.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -352,6 +356,127 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <style>
+        .social-menu {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+            /* Set a fixed width for consistent layout */
+            width: 56px;
+        }
+
+        /* Container for social icons */
+        .social-menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+            width: 56px;
+        }
+
+        /* When menu is open */
+        .social-menu.open .social-menu-items {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* Each social link */
+        .social-menu-items a {
+            background-color: #0b8438;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-menu-items a:hover {
+            background-color: #84c064;
+        }
+
+        /* Main toggle button */
+        .social-menu-toggle {
+            background-color: transparent;
+            color: white;
+            width: 56px;
+            height: 56px;
+            /* border-radius: 50%;  remove if no rounding wanted */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: none;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        .social-menu-toggle:hover {
+            background-color: transparent;
+        }
+    </style>
+
+    <div class="social-menu" id="socialMenu">
+        <div class="social-menu-items" id="menuItems">
+            <a href="https://www.facebook.com/vellamattathu.ayurveda/" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/7558021340" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+917558021340" aria-label="Call">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/hvr17jammFZsb6rV7" target="_blank" aria-label="Google">
+                <i class="fa-solid fa-location-dot"></i>
+            </a>
+            <a href="https://www.instagram.com/vellamattathuayurveda/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="social-menu-toggle" id="toggleButton" title="Social Menu">
+            <img src="images/logo.gif" alt="Social Menu Toggle" style="width: 44px; height: 44px;">
+        </div>
+
+    </div>
+
+    <script>
+        const socialMenu = document.getElementById('socialMenu');
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Toggle open/close menu
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            socialMenu.classList.toggle('open');
+        });
+
+        // Close menu if click or touch outside the menu
+        document.addEventListener('click', (e) => {
+            if (!socialMenu.contains(e.target)) {
+                socialMenu.classList.remove('open');
+            }
+        });
+
+        // Close menu on scroll anywhere
+        window.addEventListener('scroll', () => {
+            socialMenu.classList.remove('open');
+        });
+    </script>
 </body>
 
 </html>
