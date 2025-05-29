@@ -1,14 +1,14 @@
 // Main JavaScript file for Vellamattathu Ayurveda Website
 
 // Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Scroll Animation for all sections and text elements
     const scrollAnimatedElements = [
         ...document.querySelectorAll('section'),
         ...Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, .card, .btn, .profile-content, .profile-img, .hero-content, .container, .row, .col, .col-md-6, .col-md-12'))
             .filter(el => !el.classList.contains('no-animate'))
     ];
-    
+
     scrollAnimatedElements.forEach(el => el.classList.add('animate-on-scroll'));
     function animateOnScroll() {
         scrollAnimatedElements.forEach(el => {
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('nav ul');
-    
+
     if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', function(e) {
+        mobileMenuBtn.addEventListener('click', function (e) {
             e.preventDefault(); // Prevent default behavior
             e.stopPropagation(); // Stop event propagation
             navMenu.classList.toggle('active');
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuBtn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
     }
-    
+
     // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (navMenu && navMenu.classList.contains('active') && !event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
             navMenu.classList.remove('active');
             if (mobileMenuBtn) {
@@ -45,34 +45,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
+
     // Hero Slideshow
     const heroSlides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
-    
+
     if (heroSlides.length > 0) {
         // Set first slide as active
         heroSlides[0].classList.add('active');
-        
+
         // Function to change slide
         function nextSlide() {
             heroSlides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % heroSlides.length;
             heroSlides[currentSlide].classList.add('active');
         }
-        
+
         // Auto change slide every 5 seconds
         setInterval(nextSlide, 5000);
     }
-    
+
     // Treatment Read More Toggle
     const readMoreBtns = document.querySelectorAll('.read-more-btn');
-    
+
     readMoreBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             const fullDescription = this.closest('.treatment-content').querySelector('.treatment-full-description');
-            
+
             if (fullDescription) {
                 if (fullDescription.style.display === 'block') {
                     fullDescription.style.display = 'none';
@@ -84,31 +84,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Form Validation
     const contactForm = document.getElementById('contact-form');
     const appointmentForm = document.getElementById('appointment-form');
-    
+
     // Contact Form Validation
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             let isValid = true;
-            
+
             // Get form fields
             const name = document.getElementById('name');
+            const phone = document.getElementById('phone');
             const email = document.getElementById('email');
             const subject = document.getElementById('subject');
             const message = document.getElementById('message');
-            
+
             // Clear previous error messages
             clearErrors();
-            
+
             // Validate name
             if (name.value.trim() === '') {
                 showError(name, 'Name is required');
                 isValid = false;
             }
-            
+
+            // Validate phone
+            if (phone.value.trim() === '') {
+                showError(phone, 'Phone number is required');
+                isValid = false;
+            } else if (!isValidPhone(phone.value)) {
+                showError(phone, 'Please enter a valid phone number');
+                isValid = false;
+            }
+
+
             // Validate email
             if (email.value.trim() === '') {
                 showError(email, 'Email is required');
@@ -117,19 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError(email, 'Please enter a valid email');
                 isValid = false;
             }
-            
+
             // Validate subject
             if (subject.value.trim() === '') {
                 showError(subject, 'Subject is required');
                 isValid = false;
             }
-            
+
             // Validate message
             if (message.value.trim() === '') {
                 showError(message, 'Message is required');
                 isValid = false;
             }
-            
+
             if (!isValid) {
                 e.preventDefault();
             } else {
@@ -140,28 +151,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Appointment Form Validation
     if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             let isValid = true;
-            
+
             // Get form fields
             const name = document.getElementById('name');
             const phone = document.getElementById('phone');
             const email = document.getElementById('email');
             const doctor = document.getElementById('doctor');
             const time = document.getElementById('time');
-            
+
             // Clear previous error messages
             clearErrors();
-            
+
             // Validate name
             if (name.value.trim() === '') {
                 showError(name, 'Name is required');
                 isValid = false;
             }
-            
+
             // Validate phone
             if (phone.value.trim() === '') {
                 showError(phone, 'Phone is required');
@@ -170,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError(phone, 'Please enter a valid phone number');
                 isValid = false;
             }
-            
+
             // Validate email
             if (email.value.trim() === '') {
                 showError(email, 'Email is required');
@@ -179,19 +190,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError(email, 'Please enter a valid email');
                 isValid = false;
             }
-            
+
             // Validate doctor selection
             if (doctor.value === '') {
                 showError(doctor, 'Please select a doctor');
                 isValid = false;
             }
-            
+
             // Validate time selection
             if (time.value === '') {
                 showError(time, 'Please select a time');
                 isValid = false;
             }
-            
+
             if (!isValid) {
                 e.preventDefault();
             } else {
@@ -202,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Helper Functions
     function showError(input, message) {
         const formGroup = input.closest('.form-group');
@@ -212,25 +223,25 @@ document.addEventListener('DOMContentLoaded', function() {
         formGroup.appendChild(error);
         input.classList.add('error-input');
     }
-    
+
     function clearErrors() {
         document.querySelectorAll('.form-error').forEach(error => error.remove());
         document.querySelectorAll('.error-input').forEach(input => input.classList.remove('error-input'));
     }
-    
+
     function isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
-    
+
     function isValidPhone(phone) {
         const re = /^[\d\s\+\-\(\)]{10,15}$/;
         return re.test(phone);
     }
-    
+
     // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId !== '#') {
                 const targetElement = document.querySelector(targetId);
@@ -240,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         top: targetElement.offsetTop - 80, // Offset for fixed header
                         behavior: 'smooth'
                     });
-                    
+
                     // Close mobile menu if open
                     if (navMenu && navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
